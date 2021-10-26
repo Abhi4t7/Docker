@@ -1,0 +1,39 @@
+docker images  ------------------------- to check local docker images
+docker info    ------------------------- to check docker status
+service docker status -------------------to check docker status
+docker ps             -------------------to check running docker images
+docker ps -a          -------------------all images
+docker pull "img-name" ------------to download img
+docker search "name" --------------------search from docker hub
+docker run -it --name "abhi" ubuntu /bin/bash -----to create container and run docker, "abhi" is the name of container
+docker start "abhi" ---------to start container
+docker stop "abhi" ---------to stop container
+docker rm  "abhi" ---------to delete container
+docker attach "abhi" ---------to enter in "abhi" container
+cat /etc/os-release  ---check os inside the docker
+
+---------------------create new container--------------------
+
+1. docker run -it --name lab1 ubuntu /bin/bash    --lab1 is the comtainer name ,ubuntu is the base img it'll take from hub or else from locally, it'll create and run the container
+2. do required changes inside container ------------craeated file inside /tmp
+3. docker diff lab1  -------------------------------check the diffrences
+4. docker commit lab1 labimg   ---------------------create the img from container ,labimg is the new img name 
+5. docker images  ----------------------------------check the img is created or not
+6. we can share this "labimg" img with team.
+7. sudo docker run -it --name labcontainer labimg -- team can create new container from labimg with name labcontainer
+8. chaeck the file created under /tmp 
+
+
+-----------Dockerfile_creation_______________
+1. create docker file ---------Dockerfile , D should be capital
+2. docker build -t test . -----build docker file , test is the img name
+3. docker run -it --name testcontainer test /bin/bash --- create the container from img, testcontainer is the container name.
+4. Open container and do required things. by default after run cmd it'll inside container.
+
+---------Dockerfile--------------------------------
+FROM ubuntu -----------it'll copy ubuntu img from local machin , if not found then from Docker hub
+RUN touch /tmp/abhitest.txt -----it'll create test file inside /tmp dir
+RUN echo "Hello Docker_______!!!!" > abhitest.txt  ----write somthing inside file
+COPY test_copy.txt /tmp   --------create test_copy file in local maching COPY cmd will copy this file under /tmp
+ENV myname Abhi
+WORKDIR /tmp  --------------------it'll take directolly to /tmp dir
