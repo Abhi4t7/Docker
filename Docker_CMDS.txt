@@ -28,15 +28,20 @@ cat /etc/os-release  ---check os inside the docker
 
 
 -----------Dockerfile_creation_______________
+
 1. create docker file ---------Dockerfile , D should be capital
 2. docker build -t test . -----build docker file , test is the img name
 3. docker run -it --name testcontainer test /bin/bash --- create the container from img, testcontainer is the container name.
 4. Open container and do required things. by default after run cmd it'll inside container.
 
 ---------Dockerfile--------------------------------
+
 FROM ubuntu -----------it'll copy ubuntu img from local machin , if not found then from Docker hub
 RUN touch /tmp/abhitest.txt -----it'll create test file inside /tmp dir
 RUN echo "Hello Docker_______!!!!" > abhitest.txt  ----write somthing inside file
 COPY test_copy.txt /tmp   --------create test_copy file in local maching COPY cmd will copy this file under /tmp
 ENV myname Abhi
-WORKDIR /tmp  --------------------it'll take directolly to /tmp dir
+
+WORKDIR /tmp  --------------------it'll take directolly to /tmp diri
+
+---------------------------------------------------------------------------
