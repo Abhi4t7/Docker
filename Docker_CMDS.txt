@@ -1,3 +1,6 @@
+
+------------------------------Basic_cmds-------------------------------
+
 docker images  ------------------------- to check local docker images
 docker info    ------------------------- to check docker status
 service docker status -------------------to check docker status
