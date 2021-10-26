@@ -1,4 +1,4 @@
-
+/test/
 ------------------------------Basic_cmds-------------------------------
 
 docker images  ------------------------- to check local docker images
